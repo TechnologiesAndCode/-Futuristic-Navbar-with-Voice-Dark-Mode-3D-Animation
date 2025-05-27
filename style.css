@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --primary: #00fff7;
+  --background: #0a0f1c;
+  --nav-bg: rgba(0, 0, 0, 0.3);
+  --text-color: #ffffffcc;
+  --glow: 0 0 10px #00fff7, 0 0 20px #00fff7, 0 0 30px #00fff7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--background);
+  color: var(--text-color);
+  height: 100vh;
+  overflow: hidden;
+}
+
+canvas#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #050d1f 0%, #0a0f1c 100%);
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  z-index: 10;
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.theme-toggle label {
+  cursor: pointer;
+}
+
+.greeting {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  font-size: 20px;
+  color: var(--text-color);
+  text-shadow: var(--glow);
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: var(--glow);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+
+  /* Hidden by default */
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.95);
+}
+
+.nav.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nav ul li {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s ease forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav ul a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid #00fff7;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 16px;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: var(--glow);
+}
+
+.nav ul a:hover {
+  background: rgba(0, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.nav ul a i {
+  margin-right: 10px;
+}
+
+.icon {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  z-index: 20;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 35px;
+  height: 25px;
+}
+
+.icon .line {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: var(--primary);
+  transition: all 0.4s ease;
+}
+
+.icon .line1 {
+  top: 0;
+}
+
+.icon .line2 {
+  bottom: 0;
+}
+
+.nav.active + .icon .line1 {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.nav.active + .icon .line2 {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+
+body.dark {
+  --background: #ffffff;
+  --text-color: #000000cc;
+  --nav-bg: rgba(255, 255, 255, 0.2);
+  --primary: #ff0080;
+  --glow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 30px #ff0080;
+}
+
+body.dark .nav ul a {
+  background: rgba(255, 0, 128, 0.1);
+  border: 1px solid var(--primary);
+}
+
+body.dark .nav ul a:hover {
+  background: rgba(255, 0, 128, 0.2);
+}

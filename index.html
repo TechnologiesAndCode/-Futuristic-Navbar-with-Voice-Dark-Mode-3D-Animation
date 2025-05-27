@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Futuristic UI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="greeting" id="greeting">Hello, Commander.</div>
+
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="darkModeToggle" /> 🌗
+    </label>
+  </div>
+
+ <button class="icon" id="toggle">
+  <span class="line line1"></span>
+  <span class="line line2"></span>
+   <span class="line line3"></span>
+</button>
+
+<nav class="nav" id="nav">
+  <ul>
+    <li style="--i:0;"><a href="#home"><i data-lucide="home"></i><span>Home</span></a></li>
+    <li style="--i:1;"><a href="#about"><i data-lucide="user"></i><span>About</span></a></li>
+    <li style="--i:2;"><a href="#services"><i data-lucide="layers"></i><span>Services</span></a></li>
+    <li style="--i:3;"><a href="#contact"><i data-lucide="mail"></i><span>Contact</span></a></li>
+  </ul>
+</nav>
+
+
+  <div class="tilt"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
